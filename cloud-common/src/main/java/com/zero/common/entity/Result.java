@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Result<T> {
 
     private static final Integer SUCCESS = 200;
-    private static final Integer FAIL = 500;
+    private static final Integer FAILED = 500;
 
     private Integer code;
     private String message;
@@ -34,15 +34,15 @@ public class Result<T> {
     }
 
     public static <T> Result<T> success(String message, T data) {
-        return new Result<>(FAIL, message, data);
+        return new Result<>(FAILED, message, data);
     }
 
-    public static <T> Result<T> fail() {
-        return new Result<>(FAIL, null, null);
+    public static <T> Result<T> failed() {
+        return new Result<>(FAILED, null, null);
     }
 
-    public static <T> Result<T> fail(String message) {
-        return new Result<>(FAIL, message, null);
+    public static <T> Result<T> failed(String message) {
+        return new Result<>(FAILED, message, null);
     }
 }
 
