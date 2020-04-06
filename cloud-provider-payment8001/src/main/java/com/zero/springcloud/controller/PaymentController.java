@@ -57,7 +57,7 @@ public class PaymentController {
     }
 
     @GetMapping("discovery")
-    public Result getDisCoveryClient() {
+    public void getDisCoveryClient() {
         List<String > service = discoveryClient.getServices();
         service.forEach(s -> {
             log.info(s.toString());
@@ -65,8 +65,7 @@ public class PaymentController {
 
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
         instances.forEach(s -> {
-            log.info("instanceId:" + s.getInstanceId() + "," + s.getHost());
+            log.info("instanceId:" + s.getInstanceId() + "," + s.getHost() + "," + s.getPort());
         });
-        return null;
     }
 }
