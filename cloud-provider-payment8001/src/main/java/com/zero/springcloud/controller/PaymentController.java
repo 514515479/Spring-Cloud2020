@@ -7,7 +7,11 @@ import com.zero.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author: tobi
@@ -20,6 +24,9 @@ public class PaymentController {
 
     @Value("${server.port}")
     private String serverPort;
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
     @Autowired
     private PaymentService paymentService;
@@ -47,5 +54,19 @@ public class PaymentController {
     @GetMapping("/port")
     public Result getPort(){
         return Result.success(serverPort);
+    }
+
+    @GetMapping("discovery")
+    public Result getDisCoveryClient() {
+        List<String > service = discoveryClient.getServices();
+        service.forEach(s -> {
+            log.info(s.toString());
+        });
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        instances.forEach(s -> {
+            log.info("instanceId:" + s.getInstanceId() + "," + s.getHost());
+        });
+        return null;
     }
 }
