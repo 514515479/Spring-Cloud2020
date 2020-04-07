@@ -12,6 +12,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: tobi
@@ -68,4 +69,24 @@ public class PaymentController {
             log.info("instanceId:" + s.getInstanceId() + "," + s.getHost() + "," + s.getPort());
         });
     }
+
+    /*private static boolean flag = false;
+    public static void main(String[] args) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                flag = true;
+                while(true){
+
+                }
+            }
+        }).start();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.print(flag);    //打印的是false
+        System.out.println(flag);  //打印的是true
+    }*/
 }
