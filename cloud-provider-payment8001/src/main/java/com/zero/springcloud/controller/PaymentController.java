@@ -69,24 +69,34 @@ public class PaymentController {
             log.info("instanceId:" + s.getInstanceId() + "," + s.getHost() + "," + s.getPort());
         });
     }
-
-    /*private static boolean flag = false;
-    public static void main(String[] args) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                flag = true;
-                while(true){
-
-                }
+/*
+    所以某一个线程进入synchronized代码块前后，执行过程入如下：
+    a.线程获得互斥锁
+    b.清空工作内存
+    c.从主内存拷贝共享变量最新的值到工作内存成为副本
+    d.执行代码
+    e.将修改后的副本的值刷新回主内存中
+    f.线程释放锁
+*/
+    /*static class A implements Runnable{
+        public Integer b = 1;
+        @Override
+        public void run() {
+            while (true){
+                //System.out.println(b);
+                if(b.equals(2))
+                    break;
             }
-        }).start();
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("A is finished!");
         }
-        System.out.print(flag);    //打印的是false
-        System.out.println(flag);  //打印的是true
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        A a = new A();
+        new Thread(a).start();
+        TimeUnit.SECONDS.sleep(1);
+        a.b = 2;
+        //阻塞住主线程
+        while (true){}
     }*/
 }
