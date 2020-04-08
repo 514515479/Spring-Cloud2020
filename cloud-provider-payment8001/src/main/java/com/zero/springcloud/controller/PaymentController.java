@@ -70,7 +70,7 @@ public class PaymentController {
         });
     }
 /*
-    所以某一个线程进入synchronized代码块前后，执行过程入如下：
+    某一个线程进入synchronized代码块前后，执行过程入如下：
     a.线程获得互斥锁
     b.清空工作内存
     c.从主内存拷贝共享变量最新的值到工作内存成为副本
