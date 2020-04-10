@@ -1,5 +1,6 @@
 package com.zero.common.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,6 +44,11 @@ public class Result<T> {
 
     public static <T> Result<T> failed(String message) {
         return new Result<>(FAILED, message, null);
+    }
+
+    @JsonIgnore
+    public Boolean isSuccess() {
+        return this.code.equals(SUCCESS);
     }
 }
 

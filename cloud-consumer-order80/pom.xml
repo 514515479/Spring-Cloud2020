@@ -17,6 +17,7 @@
             <artifactId>cloud-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!-- 这个eureka的包 包含了Ribbon（新版） -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

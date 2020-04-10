@@ -34,6 +34,8 @@ public class PaymentController {
 
     @GetMapping("/list")
     public Result list() {
+        Result result = Result.success();
+        log.info(result.isSuccess().toString());
         return Result.success(paymentService.list());
     }
 
