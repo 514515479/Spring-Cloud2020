@@ -56,6 +56,11 @@ public class PaymentController {
 
     @GetMapping("/port")
     public Result getPort(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return Result.success(serverPort);
     }
 
