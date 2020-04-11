@@ -20,7 +20,11 @@ public class MySelfRule {
 
     @Bean
     public IRule myRule() {
-        //轮询算法（默认）
+        /*轮询算法（默认）
+         *
+         * 第 N 次调用 % 总共 M 个服务集群 = S（余数）
+         * 所以这次调用的就是集群中的第 S 个服务
+         **/
         //return new RoundRobinRule();
 
         //随机算法
