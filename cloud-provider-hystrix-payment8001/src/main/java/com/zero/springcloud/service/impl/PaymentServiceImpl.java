@@ -29,6 +29,8 @@ public class PaymentServiceImpl extends ServiceImpl<PaymentDao, Payment> impleme
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
     })
     public String hystrix2() {
+        //让直接报错，也是可以触发fallBackMethod（只要是服务不可用了）
+        //int a = 10/0;
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
