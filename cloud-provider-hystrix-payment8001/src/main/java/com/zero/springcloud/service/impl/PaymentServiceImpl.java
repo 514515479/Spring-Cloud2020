@@ -48,7 +48,7 @@ public class PaymentServiceImpl extends ServiceImpl<PaymentDao, Payment> impleme
 
     @Override
     /**
-     *这里比如10次失败超过6次，启动了断路器，后面就算输入id大于0 ，也会触发fallbackmethod
+     *这里比如10秒内10次失败超过6次，启动了断路器，后面就算输入id大于0 ，也会触发fallbackmethod
      *要隔一段时间，发现正确率上升了，错误率下降了，才会慢慢的恢复
      */
     @HystrixCommand(fallbackMethod = "fallBackMethod3", commandProperties = {
