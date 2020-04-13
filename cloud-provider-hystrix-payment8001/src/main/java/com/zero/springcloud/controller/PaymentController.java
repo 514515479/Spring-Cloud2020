@@ -35,4 +35,9 @@ public class PaymentController {
     public Result hystrix2(){
         return Result.success(paymentService.hystrix2());
     }
+
+    @GetMapping("/hystrix3/{id}")
+    public Result hystrix3(@PathVariable("id") Integer id){
+        return Result.success(paymentService.hystrix3(id));
+    }
 }

@@ -12,4 +12,6 @@ public interface PaymentService extends IService<Payment> {
     String hystrix1();
 
     String hystrix2();
+
+    String hystrix3(Integer id);
 }

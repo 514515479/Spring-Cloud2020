@@ -4,6 +4,7 @@ import com.zero.common.entity.Result;
 import com.zero.springcloud.feign.PaymentFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +27,10 @@ public class ConsumeOrderController {
     @GetMapping("/hystrix2")
     public Result hystrix2() {
         return paymentFeignService.hystrix2();
+    }
+
+    @GetMapping("/hystrix3/{id}")
+    public Result hystrix3(@PathVariable("id") Integer id) {
+        return paymentFeignService.hystrix3(id);
     }
 }

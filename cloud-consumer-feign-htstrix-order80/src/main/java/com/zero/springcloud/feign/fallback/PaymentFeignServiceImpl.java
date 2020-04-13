@@ -19,4 +19,9 @@ public class PaymentFeignServiceImpl implements PaymentFeignService {
     public Result hystrix2() {
         return Result.success("PaymentFeignService---fallback");
     }
+
+    @Override
+    public Result hystrix3(Integer id) {
+        return Result.success("PaymentFeignService---fallback");
+    }
 }
