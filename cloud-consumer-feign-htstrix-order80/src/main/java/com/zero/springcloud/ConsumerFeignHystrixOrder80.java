@@ -12,6 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
+//访问url:  http://localhost:9001/hystrix
 public class ConsumerFeignHystrixOrder80 {
     public static void main(String[] args) {
         SpringApplication.run(ConsumerFeignHystrixOrder80.class, args);
