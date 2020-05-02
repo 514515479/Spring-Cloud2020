@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping("/configClient")
+//配置文件自动刷新
 @RefreshScope
 public class ConfigClientController {
 
