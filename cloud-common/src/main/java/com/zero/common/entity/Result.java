@@ -23,15 +23,15 @@ public class Result<T> {
     private T data;
 
     public static <T> Result<T> success() {
-        return new Result<>(SUCCESS, "操作成功", null);
+        return new Result<>(SUCCESS, null, null);
     }
 
     public static <T> Result<T> success(T data) {
-        return new Result<>(SUCCESS, "操作成功", data);
+        return new Result<>(SUCCESS, null, data);
     }
 
     public static <T> Result<T> failed() {
-        return new Result<>(FAILED, "操作失败", null);
+        return new Result<>(FAILED, null, null);
     }
 
     public static <T> Result<T> failed(String message) {
