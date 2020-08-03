@@ -13,7 +13,7 @@ import java.util.UUID;
  * @Author: tobi
  * @Date: 2020/8/4 0:28
  **/
-@EnableBinding(Source.class)  //定义消息的推送管道
+@EnableBinding(Source.class)  //绑定消息的管道，这个Source是自带的，里面的 @Output 定义了输出通道
 public class MessageProvider implements IMessageProvider {
 
     @Autowired
